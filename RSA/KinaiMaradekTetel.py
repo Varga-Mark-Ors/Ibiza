@@ -19,21 +19,16 @@ def Euklidesz(k0, k1, d = 0, x = 0, y = 0):
     x = s * x0 # képletbe behelyetesítve megkapjuk az x-t
     y = -s * y0 # képletbe behelyetesítve megkapjuk az y-t
     d = k0 # oda adjuk a d-nek az lnko-t
-    #print(x,y)
     return x, y #vissza adjuk az értékeket
 
 def kinai(C, d, P, Q):
     m1 = Q # Képlet pontosabban (P*Q) / P
     m2 = P # Képlet pontosabban (P*Q) / Q
     c1 = C ** (d % (m2 - 1)) % m2
-    #print(c1)
     c2 = C ** (d % (m1 - 1)) % m1
-    #print(c2)
     (y1, y2) = Euklidesz(m1, m2)
-    #print(y1," ",y2)
     m = y1 * m1 * c1 + m2 * y2 * c2
     m = m % (P * Q)
-    #print("m =", m)
     return m
 
 

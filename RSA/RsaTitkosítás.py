@@ -26,7 +26,7 @@ def kulcs():
     while not i:
         e = random.randint(3, On)
         dlista =list(Euklidesz.euklidesz(On, e))
-        if dlista[0] == 1:
+        if dlista[0] == 1: #Ha a On és e-nek az lnko-ja 1, akkor jók a számok és mehetünk tovább velük
             i = True
             d = dlista[2]
     return P, Q, N , On, e, d 
@@ -35,9 +35,9 @@ def kulcs():
 def main():
     (P, Q, N , On, e, d) = list(kulcs())
     m = random.randint(10, 200)
-    C = Gyorshatvanyozas2.gyorshatvany(m, e, N)
-    m2 = KinaiMaradekTetel.kinai(C, d, P, Q)
-    if m == m2 :
+    C = Gyorshatvanyozas2.gyorshatvany(m, e, N) #Titkosítjuk az üzenetet
+    m2 = KinaiMaradekTetel.kinai(C, d, P, Q) #Kikódoljuk azt
+    if m == m2 : #Ha ugyan azt kapjuk megfelelően megy a program
         print("A program megfelelően működik!")
     else:
         print("A program nem megfelelően működik!")

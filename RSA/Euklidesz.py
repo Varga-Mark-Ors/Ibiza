@@ -1,5 +1,5 @@
 def euklidesz(k0, k1, d = 0, x = 0, y = 0):
-    x0 = 1 #Tábláyat első 2 sora xk,yk-nak
+    x0 = 1 #Táblázat első 2 sora xk,yk-nak
     x1 = 0
     y0 = 0
     y1 = 1
