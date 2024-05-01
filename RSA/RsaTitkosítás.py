@@ -1,31 +1,27 @@
-import random
-import Euklidesz
-import Gyorshatvanyozas2
-import KinaiMaradekTetel
+from random import randint
+from Euklidesz import euklidesz
+from Gyorshatvanyozas2 import gyorshatvany
+from KinaiMaradekTetel import kinai
+from MillerRabin import MillerRabin
 
-def prim(a):
-    for j in range(2, a // 2):
-        if a % j == 0:
-            return False
-    return True
 
 def kulcs():
     i = False
     while not i:
-        Q = random.randint(3, 999)
-        i = prim(Q)
+        Q = randint(3, 999)
+        i = MillerRabin(Q)
     #print(Q)
     i = False
     while not i:
-        P = random.randint(3, 999)
-        i = prim(P)
+        P = randint(3, 999)
+        i = MillerRabin(P)
     #print(P)
     N = P * Q
     On = (P - 1) * (Q - 1)
     i = False
     while not i:
-        e = random.randint(3, On)
-        dlista =list(Euklidesz.euklidesz(On, e))
+        e = randint(3, On)
+        dlista =list(euklidesz(On, e))
         if dlista[0] == 1: #Ha a On és e-nek az lnko-ja 1, akkor jók a számok és mehetünk tovább velük
             i = True
             d = dlista[2]
@@ -34,9 +30,9 @@ def kulcs():
 
 def main():
     (P, Q, N , On, e, d) = list(kulcs())
-    m = random.randint(10, 200)
-    C = Gyorshatvanyozas2.gyorshatvany(m, e, N) #Titkosítjuk az üzenetet
-    m2 = KinaiMaradekTetel.kinai(C, d, P, Q) #Kikódoljuk azt
+    m = randint(10, 200)
+    C = gyorshatvany(m, e, N) #Titkosítjuk az üzenetet
+    m2 = kinai(C, d, P, Q) #Kikódoljuk azt
     if m == m2 : #Ha ugyan azt kapjuk megfelelően megy a program
         print("A program megfelelően működik!")
     else:
